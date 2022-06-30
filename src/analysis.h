@@ -4,7 +4,9 @@
 
 #include <iostream>
 #include <fstream>
+#ifndef _WIN32
 #include <unistd.h>  //usleep
+#endif
 #include <math.h>    //sqrt
 
 #include "enums.h"

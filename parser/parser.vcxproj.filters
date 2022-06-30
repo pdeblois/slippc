@@ -35,9 +35,6 @@
     <ClInclude Include="..\src\parser.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\picohash.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\portable-file-dialogs.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -48,9 +45,6 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\shiftjis.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\tests.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\util.h">
@@ -116,9 +110,6 @@
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\replay.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\tests.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -15,5 +15,6 @@ __*
 test-replays/zlptest.zlp
 test-replays/zlptest.slp
 
-*.vs
+.vs/
+x64/
 *.user
