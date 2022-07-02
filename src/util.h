@@ -27,11 +27,11 @@
 #include "shiftjis.h"
 
 #ifdef _WIN32
-#define UINT64(x) static_cast<uint64_t>(x)
-#define UI64BI(b,i) UINT64(b) << (8*i) // UINT64BYTEINDEX : b = byte, i = index (0 is lower byte, 7 is higher byte)
-#define BYTE8(b1,b2,b3,b4,b5,b6,b7,b8) UI64BI(b1,7) + UI64BI(b2,6) + UI64BI(b3,5) + UI64BI(b4,4) + UI64BI(b5,3) + UI64BI(b6,2) + UI64BI(b7,1) + UI64BI(b8,0)
-#define BYTE4(b1,b2,b3,b4)             UI64BI(b1,3) + UI64BI(b2,2) + UI64BI(b3,1) + UI64BI(b4,0)
-#define BYTE2(b1,b2)                   UI64BI(b1,1) + UI64BI(b2,0)
+#define UINT64(x) (static_cast<uint64_t>(x))
+#define UI64BI(b,i) (UINT64(b) << (8*i)) // UINT64BYTEINDEX : b = byte, i = index (0 is lower byte, 7 is higher byte)
+#define BYTE8(b1,b2,b3,b4,b5,b6,b7,b8) (UI64BI(b1,0) + UI64BI(b2,1) + UI64BI(b3,2) + UI64BI(b4,3) + UI64BI(b5,4) + UI64BI(b6,5) + UI64BI(b7,6) + UI64BI(b8,7))
+#define BYTE4(b1,b2,b3,b4)             (UI64BI(b1,0) + UI64BI(b2,1) + UI64BI(b3,2) + UI64BI(b4,3))
+#define BYTE2(b1,b2)                   (UI64BI(b1,0) + UI64BI(b2,1))
 #else
 #define BYTE8(b1,b2,b3,b4,b5,b6,b7,b8) *((uint64_t*)(uint8_t[]{b1,b2,b3,b4,b5,b6,b7,b8}))
 #define BYTE4(b1,b2,b3,b4)             *((uint32_t*)(uint8_t[]{b1,b2,b3,b4}))
