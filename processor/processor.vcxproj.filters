@@ -21,5 +21,103 @@
     <ClCompile Include="processor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\analysis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\analyzer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\compressor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\replay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\lzma\base.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\bcj.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\block.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\check.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\container.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\delta.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\filter.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\hardware.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\index.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\index_hash.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\lzma12.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\stream_flags.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\version.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma\vli.h">
+      <Filter>Header Files\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\analysis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\analyzer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\compressor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\enums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gecko-legacy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lzma.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\portable-file-dialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\replay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\schema.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\shiftjis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
