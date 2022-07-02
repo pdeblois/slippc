@@ -17,4 +17,6 @@ test-replays/zlptest.slp
 
 .vs/
 x64/
+Debug/
+Release/
 *.user
