@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <fstream>
-#ifndef _WIN32
+#ifndef _MSC_VER
 #include <unistd.h>  //usleep
 #endif
 #include <math.h>    //sqrt
