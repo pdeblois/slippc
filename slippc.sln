@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "slippc-lib", "msvc-projects\slippc-lib\slippc-lib.vcxproj", "{890F6B4C-EAEA-40BB-80C6-4D73736A0637}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "slippc-exe", "msvc-projects\slippc-exe\slippc-exe.vcxproj", "{1A5C0E62-7F81-463F-9134-EE0BB28BE4B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{890F6B4C-EAEA-40BB-80C6-4D73736A0637} = {890F6B4C-EAEA-40BB-80C6-4D73736A0637}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
