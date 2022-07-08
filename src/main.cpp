@@ -15,7 +15,7 @@
 
 typedef std::filesystem::directory_iterator            f_iter;
 typedef std::filesystem::directory_entry               f_entry;
-typedef std::vector<std::basic_string<char>> str_vec;
+typedef std::vector<std::basic_string<char>>           str_vec;
 
 namespace slip {
 
