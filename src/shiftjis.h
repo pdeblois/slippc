@@ -1,5 +1,5 @@
-#ifndef SHIFT_JIS_H_
-#define SHIFT_JIS_H_
+#ifndef SHIFTJIS_H_
+#define SHIFTJIS_H_
 
 // https://stackoverflow.com/questions/33165171/c-shiftjis-to-utf8-conversion
 
@@ -3143,4 +3143,4 @@ const unsigned char shiftJIS_convTable[25088] ={
 	
 };
 
-#endif /* SHIFT_JIS_H_ */
+#endif /* SHIFTJIS_H_ */
