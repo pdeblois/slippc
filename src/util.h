@@ -21,12 +21,22 @@
 #include <filesystem>
 
 #include "lzma.h"
+#ifndef _MSC_VER
 #include "picohash.h"
+#endif
 #include "shiftjis.h"
 
-#define BYTE8(b1,b2,b3,b4,b5,b6,b7,b8) (*((uint64_t*)(uint8_t[]){b1,b2,b3,b4,b5,b6,b7,b8}))
-#define BYTE4(b1,b2,b3,b4)             (*((uint32_t*)(uint8_t[]){b1,b2,b3,b4}))
-#define BYTE2(b1,b2)                   (*((uint16_t*)(uint8_t[]){b1,b2}))
+#ifdef _MSC_VER
+#define UINT64(x) (static_cast<uint64_t>(x))
+#define UI64BI(b,i) (UINT64(b) << (8*i)) // UINT64BYTEINDEX : b = byte, i = index (0 is lower byte, 7 is higher byte)
+#define BYTE8(b1,b2,b3,b4,b5,b6,b7,b8) (UI64BI(b1,0) + UI64BI(b2,1) + UI64BI(b3,2) + UI64BI(b4,3) + UI64BI(b5,4) + UI64BI(b6,5) + UI64BI(b7,6) + UI64BI(b8,7))
+#define BYTE4(b1,b2,b3,b4)             (UI64BI(b1,0) + UI64BI(b2,1) + UI64BI(b3,2) + UI64BI(b4,3))
+#define BYTE2(b1,b2)                   (UI64BI(b1,0) + UI64BI(b2,1))
+#else
+#define BYTE8(b1,b2,b3,b4,b5,b6,b7,b8) *((uint64_t*)(uint8_t[]{b1,b2,b3,b4,b5,b6,b7,b8}))
+#define BYTE4(b1,b2,b3,b4)             *((uint32_t*)(uint8_t[]{b1,b2,b3,b4}))
+#define BYTE2(b1,b2)                   *((uint16_t*)(uint8_t[]{b1,b2}))
+#endif
 
 const uint64_t SLP_HEADER  = BYTE8(0x7b,0x55,0x03,0x72,0x61,0x77,0x5b,0x24); // {U.raw[$
 const uint32_t LZMA_HEADER = BYTE4(0xfd,0x37,0x7a,0x58);
@@ -564,7 +574,7 @@ inline std::string getFileExt(std::string f) {
 
 inline void stringtoChars(std::string s, char** c) {
   *c = new char[s.size()+1];
-  strcpy(*c, s.c_str());
+  strcpy_s(*c, s.size() + 1, s.c_str());
 }
 
 inline std::string md5tostring(unsigned char* digest) {
@@ -576,6 +586,7 @@ inline std::string md5tostring(unsigned char* digest) {
   return ss.str();
 }
 
+#ifndef _MSC_VER
 inline std::string md5data(unsigned char* buffer, size_t length) {
   picohash_ctx_t ctx;
   unsigned char digest[PICOHASH_MD5_DIGEST_LENGTH];
@@ -617,6 +628,7 @@ inline std::string md5file(std::string fname, bool compressed = false) {
 inline std::string md5compressed(std::string fname) {
   return md5file(fname,true);
 }
+#endif
 
 inline bool isDirectory(const char* path) {
   struct stat s;
@@ -639,10 +651,19 @@ inline bool makeDirectoryIfNotExists(const char* path) {
   return std::filesystem::create_directories(path);
 }
 
+#ifdef _MSC_VER
+inline auto timestamp() {
+  std::time_t time_now = std::time(nullptr);
+  std::tm buf;
+  ::localtime_s(&buf, &time_now);
+  return std::put_time(&buf, "%Y-%m-%d %OH:%OM:%OS");
+}
+#else
 inline std::_Put_time<char> timestamp() {
   std::time_t time_now = std::time(nullptr);
   return std::put_time(std::localtime(&time_now), "%Y-%m-%d %OH:%OM:%OS");
 }
+#endif
 
 inline bool ensureExt(const char* ext, const char* fname) {
   std::string fs(fname);

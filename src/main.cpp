@@ -15,7 +15,7 @@
 
 typedef std::filesystem::directory_iterator            f_iter;
 typedef std::filesystem::directory_entry               f_entry;
-typedef std::vector<std::__cxx11::basic_string<char> > str_vec;
+typedef std::vector<std::basic_string<char>>           str_vec;
 
 namespace slip {
 
@@ -298,8 +298,8 @@ int handleDirectory(const cmdoptions &c, const int debug) {
 
   // find all slippi files in a directory
   for (const f_entry & entry : f_iter(std::string(c.infile))) {
-    std::string base  = entry.path().filename();
-    std::string noext = entry.path().stem();
+    std::string base  = entry.path().filename().string();
+    std::string noext = entry.path().stem().string();
     if (getFileExt(base).compare("slp") == 0) {
       cmdoptions c2;
       copyCommandOptions(c,c2);

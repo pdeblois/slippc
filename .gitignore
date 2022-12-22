@@ -14,3 +14,10 @@ __*
 .todo
 test-replays/zlptest.zlp
 test-replays/zlptest.slp
+
+.vs/
+x64/
+x86/
+Debug/
+Release/
+*.user

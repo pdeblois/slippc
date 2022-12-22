@@ -4,7 +4,9 @@
 
 #include <iostream>
 #include <fstream>
+#ifndef _MSC_VER
 #include <unistd.h>  //usleep
+#endif
 #include <math.h>    //sqrt
 
 #include "enums.h"
@@ -158,22 +160,22 @@ struct AnalysisPlayer {
 
 //Struct for holding all analysis data within a game
 struct Analysis {
-  bool            success          = false;  //Whether we succeeded analyzing a replay
-  unsigned        parse_errors     = 0;      //Number of errors that occurred during replay parsing
-  std::string     game_time        = "";     //When the game was played, from replay metadata
-  std::string     original_file    = "";     //Path to the original input file
-  std::string     slippi_version   = "";     //Version of Slippi the replay was recorded with
-  std::string     parser_version   = "";     //Version of parser the replay was parsed with
-  std::string     analyzer_version = "";     //Version of this analyzer we are using
-  unsigned        stage_id         = 0;      //Internal ID of the stage
-  std::string     stage_name       = "";     //Readable name of the stage
-  int             winner_port      = 0;      //Port index of the winning player (-1 == no winner)
-  unsigned        game_length      = 0;      //Length of the game in frames (0 == internal frame -123)
-  unsigned        timer            = 0;      //Game timer starting minutes
-  AnalysisPlayer* ap;                        //Analysis of individual players in the game
-  unsigned*       dynamics;                  //Interaction dynamics on a per-frame basis
-  unsigned        end_type;                  //Game end type
-  int             lras_player;               //Player port who LRAS-ed (-1 if none)
+  bool            success          = false;    //Whether we succeeded analyzing a replay
+  unsigned        parse_errors     = 0;        //Number of errors that occurred during replay parsing
+  std::string     game_time        = "";       //When the game was played, from replay metadata
+  std::string     original_file    = "";       //Path to the original input file
+  std::string     slippi_version   = "";       //Version of Slippi the replay was recorded with
+  std::string     parser_version   = "";       //Version of parser the replay was parsed with
+  std::string     analyzer_version = "";       //Version of this analyzer we are using
+  unsigned        stage_id         = 0;        //Internal ID of the stage
+  std::string     stage_name       = "";       //Readable name of the stage
+  int             winner_port      = 0;        //Port index of the winning player (-1 == no winner)
+  unsigned        game_length      = 0;        //Length of the game in frames (0 == internal frame -123)
+  unsigned        timer            = 0;        //Game timer starting minutes
+  AnalysisPlayer* ap               = nullptr;  //Analysis of individual players in the game
+  unsigned*       dynamics         = nullptr;  //Interaction dynamics on a per-frame basis
+  unsigned        end_type         = 0;        //Game end type
+  int             lras_player      = -1;       //Player port who LRAS-ed (-1 if none)
 
   Analysis(unsigned frame_count) {
     dynamics = new unsigned[frame_count]{0}; // List of dynamics active at each frame
